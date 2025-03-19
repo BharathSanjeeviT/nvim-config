@@ -6,6 +6,8 @@ return {
 		"L3MON4D3/LuaSnip",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
 			"rafamadriz/friendly-snippets",
 		},
 	},
@@ -26,8 +28,8 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_next_item(), -- Iterate down through the suggestions
-					["<C-j>"] = cmp.mapping.select_prev_item(), -- Iterate up through the suggestions
+					["<A-j>"] = cmp.mapping.select_next_item(), -- Iterate down through the suggestions
+					["<A-k>"] = cmp.mapping.select_prev_item(), -- Iterate up through the suggestions
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept the currently selected item

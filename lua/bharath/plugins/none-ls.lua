@@ -10,6 +10,9 @@ return {
 				null_ls.builtins.formatting.prettier, -- JavaScript/TypeScript/HTML/CSS formatter
 				null_ls.builtins.formatting.rubocop, -- Ruby formatter
 				null_ls.builtins.formatting.clang_format, -- C++ formatter
+				null_ls.builtins.formatting.google_java_format, -- Java formatter
+				null_ls.builtins.formatting.black, -- Python formatter
+				null_ls.builtins.formatting.hlint, -- Haskel formatter
 
 				-- Diagnostics
 				null_ls.builtins.diagnostics.erb_lint, -- Ruby diagnostics

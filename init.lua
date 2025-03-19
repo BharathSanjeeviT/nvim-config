@@ -32,7 +32,19 @@ function Opncpp()
 	vim.cmd("vertical resize 98")
 end
 
+function Opnjava()
+	vim.cmd("edit out.txt")
+	local out_win_id = vim.fn.win_getid()
+	vim.cmd("vsp main.java")
+	local main_win_id = vim.fn.win_getid()
+	vim.fn.win_gotoid(out_win_id)
+	vim.cmd("split in.txt")
+	vim.fn.win_gotoid(main_win_id)
+	vim.cmd("vertical resize 98")
+end
+
 vim.api.nvim_set_keymap("n", "<Leader>oc", ":lua Opncpp()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>oj", ":lua Opnjava()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>p", ":Copilot disable<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap(
@@ -42,13 +54,21 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 
--- Navigate splits using Ctrl + h/j/k/l
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader><leader>", ":noh<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>jc",
+	":FloatermNew java main.java < in.txt > out.txt<CR>",
+	{ noremap = true, silent = true }
+)
 
 -- tab space to 2
 vim.cmd("set tabstop=2")
 vim.cmd("set shiftwidth=2")
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>//", "<cmd>%s/\\/\\/.*//g<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>#", "<cmd>%s/#.*//g<CR>", { noremap = true, silent = true })
+
+

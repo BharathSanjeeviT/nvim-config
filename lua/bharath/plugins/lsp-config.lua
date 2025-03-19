@@ -40,6 +40,18 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Configure Java
+			lspconfig.jdtls.setup({
+				capabilities = capabilities,
+				settings = {
+					java = {
+						format = {
+							enabled = true,
+						},
+					},
+				},
+			})
+
 			-- Configure Lua
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
@@ -66,6 +78,21 @@ return {
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 			})
+
+			--Configure SQL
+			lspconfig.sqlls.setup({
+				capabilities = capabilities,
+			})
+
+			--Configure Python formater and linter
+			lspconfig.pyls.setup({
+				capabilities = capabilities,
+			})
+
+			-- Configure Haskell 	
+			lspconfig.hls.setup({
+				capabilities = capabilities,
+			})	
 
 			-- Additional LSP setup
 			-- Add more configurations if needed for other languages
